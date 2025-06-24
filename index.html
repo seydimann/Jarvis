@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JARVIS Voice Assistant</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #262626;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            width: 400px;
+            color: white;
+        }
+        .title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #00ff9d;
+            text-shadow: 0 0 10px rgba(0,255,157,0.5);
+        }
+        .chat-area {
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            background: #333;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .message {
+            margin: 8px 0;
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 70%;
+        }
+        .user-message {
+            background: #007bff;
+            margin-left: auto;
+        }
+        .jarvis-message {
+            background: #444;
+        }
+        .mic-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #00ff9d;
+            cursor: pointer;
+            margin: 0 auto;
+            transition: transform 0.2s;
+        }
+        .mic-button:hover {
+            transform: scale(1.1);
+        }
+        .mic-button:active {
+            transform: scale(0.9);
+        }
+        .typing-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #00ff9d;
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: typingAnimation 1.4s infinite ease-in-out;
+        }
+        @keyframes typingAnimation {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+        .status {
+            text-align: center;
+            color: #aaa;
+            font-size: 0.8em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">JARVIS</div>
+        <div class="chat-area" id="chat"></div>
+        <div class="status" id="status">Initializing AI model...</div>
+        <div class="mic-button" id="micButton">🎤</div>
+    </div>
+
+    <!-- WebLLM Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.1.0"></script>
+    <script src="app.js"></script>
+</body>
+</html>
